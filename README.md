@@ -1,6 +1,8 @@
 # MySinatra
-[Sinatra 公式](http://sinatrarb.com/)
-[Dotinstall Sinatra 入門](https://dotinstall.com/lessons/basic_sinatra_v2)
+
+* [Sinatra 公式](http://sinatrarb.com/)   
+* [Dotinstall Sinatra 入門](https://dotinstall.com/lessons/basic_sinatra_v2)   
+
 ## SinatraのGemインストール
 ```
 $ gem install sinatra sinatra-contrib activerecord rack_csrf sqlite3 --no-document
@@ -20,4 +22,4 @@ sqlite> select * from comments;
 sqlite> .quit
 ```
 
-## 
+##

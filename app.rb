@@ -3,9 +3,11 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
 
+ # CSRF 対策
 use Rack::Session::Cookie, secret: "thisissomethingsecret"
 use Rack::Csrf, raise: true
 
+# ヘルパーの利用
 helpers do
   def csrf_tag
     Rack::Csrf.csrf_tag(env)
