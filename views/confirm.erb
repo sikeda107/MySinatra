@@ -1,0 +1,14 @@
+<h1>確認画面</h1>
+
+<form action="update" method="POST">
+  <div>
+  CommentID:
+  <%=@comment.id%>
+  <br>
+  <input type="text" name="id" value="<%= @comment.id %>">
+  <input type="text" name="body" value="<%= @comment.body %>">
+  </div>
+  <div>
+    <input type="submit" value="更新する">
+  </div>
+</form>

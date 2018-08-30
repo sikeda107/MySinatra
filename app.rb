@@ -1,24 +1,24 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
-require 'rack/csrf'
+# require 'rack/csrf'
 
  # CSRF 対策
-use Rack::Session::Cookie, secret: "thisissomethingsecret"
-use Rack::Csrf, raise: true
+# use Rack::Session::Cookie, secret: "thisissomethingsecret"
+# use Rack::Csrf, raise: true
 
 # ヘルパーの利用
-helpers do
-  def csrf_tag
-    Rack::Csrf.csrf_tag(env)
-  end
-  def csrf_token
-    Rack::Csrf.csrf_token(env)
-  end
-  def h(str)
-    Rack::Utils.escape_html(str)
-  end
-end
+# helpers do
+#   def csrf_tag
+#     Rack::Csrf.csrf_tag(env)
+#   end
+#   def csrf_token
+#     Rack::Csrf.csrf_token(env)
+#   end
+#   def h(str)
+#     Rack::Utils.escape_html(str)
+#   end
+# end
 
 # アクティブレコードの準備
 ActiveRecord::Base.establish_connection(
@@ -41,10 +41,21 @@ post '/create' do
   redirect to ('/')
 end
 
+post '/update' do
+  Comment.find(params[:id]).update(body: params[:body])
+  redirect to ('/')
+end
+
 post '/destroy' do
   Comment.find(params[:id]).destroy
 end
 get '/about' do
   @title = "About"
   erb :about
+end
+
+
+post '/confirm' do
+  @comment = Comment.find(params[:commentid])
+  erb :confirm
 end
