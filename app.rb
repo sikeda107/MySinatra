@@ -49,9 +49,10 @@ end
 post '/destroy' do
   Comment.find(params[:id]).destroy
 end
+
 get '/about' do
   @title = "About"
-  erb :about , :layout => :layout
+  erb :about , :layout => nil # Layout未指定
 end
 
 # # %r 正規表現
