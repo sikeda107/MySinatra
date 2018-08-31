@@ -54,9 +54,14 @@ get '/about' do
   erb :about , :layout => :layout
 end
 
-# %r 正規表現
-get %r{/edit/([0-9]*)} do
-  @comment = Comment.find(params[:captures][0])
-  # "Hello #{params['commentid']}!"
+# # %r 正規表現
+# get %r{/edit/([0-9]*)} do
+#   @comment = Comment.find(params[:captures][0])
+#   # "Hello #{params['commentid']}!"
+#   erb :edit , :layout => :layout
+# end
+
+post '/edit' do
+  @comment = Comment.find(params[:id])
   erb :edit , :layout => :layout
 end

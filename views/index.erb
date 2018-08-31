@@ -4,7 +4,11 @@
   <li data-id="<%= comment.id %>">
     <%= Rack::Utils.escape_html(comment.body) %>
     <span class="delete">[x]</span>
-    <a href="/edit/<%= comment.id %>" class="edit">Edit</a>
+    <form action="/edit" method="post">
+      <input type="hidden" name="id" value="<%= comment.id%>">
+      <input type="submit" value="EDIT">
+    </form>
+    <!-- <a href="/edit/<%= comment.id %>" class="edit">Edit</a> -->
   </li>
   <% end %>
 </ul>
