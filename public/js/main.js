@@ -6,7 +6,7 @@ $(function() {
     }
     $.post('/destroy', {
       id: li.data('id'),
-      _csrf: li.data('token')
+      // _csrf: li.data('token')
     }, function() {
       li.fadeOut(800);
     });

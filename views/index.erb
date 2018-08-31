@@ -2,21 +2,13 @@
 <ul>
   <% @comments.each do |comment| %>
   <li data-id="<%= comment.id %>">
-    <%= comment.body %>
+    <%= Rack::Utils.escape_html(comment.body) %>
     <span class="delete">[x]</span>
-    <form action="confirm" method="POST">
-      <div>
-        <input type="text" name="commentid" value="<%= comment.id %>">
-      </div>
-      <div>
-        <input type="submit" value="更新する">
-      </div>
-    </form>
+    <a href="/edit/<%= comment.id %>">Edit</a>
   </li>
   <% end %>
 </ul>
 <form action="/create" method="post">
-
   <input type="text" name="body">
   <input type="submit" value="Add comment">
 </form>

@@ -1,0 +1,11 @@
+<h1>編集画面</h1>
+ID:<%= @comment.id %> <br>
+BODY:<%= @comment.body %> <br>
+
+<form action="/edit/update" method="post">
+  <input type="hidden" name="id" value="<%= @comment.id %>">
+  <input type="text" name="body" value="<%= @comment.body %>">
+  <input type="submit" value="UPDATE">
+</form>
+<br>
+<a href="/">HOME</a>

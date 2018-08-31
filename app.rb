@@ -41,8 +41,8 @@ post '/create' do
   redirect to ('/')
 end
 
-post '/update' do
-  Comment.find(params[:id]).update(body: params[:body])
+post '/edit/update' do
+  Comment.find(params[:id]).update(body: "#{params[:body]}")
   redirect to ('/')
 end
 
@@ -54,8 +54,9 @@ get '/about' do
   erb :about
 end
 
-
-post '/confirm' do
-  @comment = Comment.find(params[:commentid])
-  erb :confirm
+# %r 正規表現
+get %r{/edit/([0-9]*)} do
+  @comment = Comment.find(params[:captures][0])
+  # "Hello #{params['commentid']}!"
+  erb :edit
 end
