@@ -4,7 +4,7 @@
   <li data-id="<%= comment.id %>">
     <%= Rack::Utils.escape_html(comment.body) %>
     <span class="delete">[x]</span>
-    <a href="/edit/<%= comment.id %>">Edit</a>
+    <a href="/edit/<%= comment.id %>" class="edit">Edit</a>
   </li>
   <% end %>
 </ul>

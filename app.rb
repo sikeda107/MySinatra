@@ -33,7 +33,7 @@ end
 get '/' do
   @title = "My BBS"
   @comments = Comment.all
-  erb :index
+  erb :index , :layout => :layout
 end
 
 post '/create' do
@@ -51,12 +51,12 @@ post '/destroy' do
 end
 get '/about' do
   @title = "About"
-  erb :about
+  erb :about , :layout => :layout
 end
 
 # %r 正規表現
 get %r{/edit/([0-9]*)} do
   @comment = Comment.find(params[:captures][0])
   # "Hello #{params['commentid']}!"
-  erb :edit
+  erb :edit , :layout => :layout
 end
