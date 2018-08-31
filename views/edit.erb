@@ -2,7 +2,7 @@
 ID:<%= @comment.id %> <br>
 BODY:<%= @comment.body %> <br>
 
-<form action="/edit/update" method="post">
+<form action="/update" method="post">
   <input type="hidden" name="id" value="<%= @comment.id %>">
   <input type="text" name="body" value="<%= @comment.body %>">
   <input type="submit" value="UPDATE">

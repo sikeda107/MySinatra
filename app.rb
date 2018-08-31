@@ -41,7 +41,7 @@ post '/create' do
   redirect to ('/')
 end
 
-post '/edit/update' do
+post '/update' do
   Comment.find(params[:id]).update(body: "#{params[:body]}")
   redirect to ('/')
 end
